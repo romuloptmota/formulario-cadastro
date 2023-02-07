@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .forms import ProdutoModelForms
+from .models import Produto
 
 
 class HomeView(TemplateView):
@@ -28,3 +29,7 @@ def cadastro(request):
     }
 
     return render(request, 'cadastro.html', context)
+
+
+def cadastrados(request):
+    return render(request, 'cadastrados.html')
