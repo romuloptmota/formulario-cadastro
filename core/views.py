@@ -35,4 +35,4 @@ def cadastrados(request):
     context = {
         'produtos': Produto.objects.all()
     }
-    return render(request, 'cadastrados.html')
+    return render(request, 'cadastrados.html', context)
