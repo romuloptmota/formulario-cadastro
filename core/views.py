@@ -20,6 +20,7 @@ def cadastro(request):
             print(f'Imagem: {prod.imagem}')
 
             messages.success(request, 'Produto salvo com sucesso')
+            form = ProdutoModelForms()
         else:
             messages.error(request, 'Erro ao salvar produto')
 
