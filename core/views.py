@@ -32,4 +32,7 @@ def cadastro(request):
 
 
 def cadastrados(request):
+    context = {
+        'produtos': Produto.objects.all()
+    }
     return render(request, 'cadastrados.html')
