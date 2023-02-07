@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
 
+
     {% block content %}
 
         <div class="container">
@@ -23,10 +24,26 @@
 
                     <tr>
                       <td scope="row">{{ produto.id }}</td>
-                      <td scope="row">{{ produto.nome }}</td>
+                      <td scope="row"><a href="#modal{{produto.id}}" data-toggle="modal" style="color: white">{{ produto.nome }}</a></td>
                       <td scope="row">{{ produto.preco }}</td>
                       <td scope="row">{{ produto.estoque }}</td>
                     </tr>
+
+                    <!-- modal para apresentação da imagem -->
+                    <div class="modal fade bd-examble-modal-lg show" id="modal{{produto.id}}" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <div class="modal-body" id="dynamic-content">
+                                        <img src="{{ produto.imagem.url }}" class="img-fluid" alt="{{ produto.nome }}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                   {% endfor %}
 
